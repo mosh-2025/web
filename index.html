@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Para el bodoque</title>
   <style>
+    :root {
+      --primary-color: #002ead;
+      --secondary-color: #67686b;
+      --button-yes-color: #4CAF50;
+      --button-no-color: #f44336;
+      --font-family: 'Poppins', sans-serif;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
     body {
       margin: 0;
       padding: 0;
@@ -14,19 +24,23 @@
       align-items: center;
       height: 100vh;
       background-color: #f3f3f3;
-      font-family: Arial, sans-serif;
-    }
-    #container {
-      text-align: center;
-    }
-    h1 {
-      font-size: 32px;
-      color: #002ead;
+      font-family: var(--font-family);
     }
 
-    h3 {
-      font-size: 32px;
-      color: #67686b;
+    #container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: var(--primary-color);
+    }
+
+    h2 {
+      font-size: 24px;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
     }
 
     #buttons {
@@ -35,46 +49,65 @@
       justify-content: center;
       align-items: center;
     }
+
     button {
       margin: 10px;
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 18px;
       color: #fff;
-      background-color: #4CAF50;
+      background-color: var(--button-yes-color);
       border: none;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
     }
+
     button:hover {
       background-color: #45a049;
     }
+
     #btnNo {
-      background-color: #f44336;
+      background-color: var(--button-no-color);
     }
+
     #btnNo:hover {
       background-color: #d32f2f;
     }
+
     img, video {
-      margin-top: 30px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 600px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
     }
+
     video {
       display: none;
+    }
+
+    @media (max-width: 768px) {
+      h1, h2 {
+        font-size: 22px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <img id="imagen" src="https://wallpapercave.com/wp/wp6852150.jpg" alt="Pregunta 1" width="auto">
   <div id="container">
+    <img id="imagen" src="https://wallpapercave.com/wp/wp6852150.jpg" alt="Pregunta 1">
     <h1 id="pregunta">Esperamos que sepas que eres alguien muy importante para nosotros</h1>
+    <h2 id="text">Lo sabes, ¿cierto?</h2>
     <div id="buttons">
       <button onclick="siguientePregunta()" id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
     </div>
-    <video id="videoFinal" width="400" controls>
+    <video id="videoFinal" controls>
       <source src="video/final.mp4" type="video/mp4">
       Tu navegador no soporta la reproducción de video.
     </video>
@@ -92,24 +125,21 @@
     ];
 
     const preguntas = [
-      "Lo sabes, ¿cierto?",
       "Por esa razón Monze y yo queremos hacerte algunas preguntas y ver que tan preparado estás",
       "¿Nos apoyarás en los momentos más importantes?",
       "¿Prometes estar siempre a nuestro lado?",
-      "¿Disfrutarás cada momento de ese día especial con nostros?",
-      "¿Estás listo para la útima pregunta? Es la más difícil...",
-      "¿Te gustaría se nuestro testigo en la boda civil?"
-      
+      "¿Disfrutarás cada momento de ese día especial con nosotros?",
+      "¿Estás listo para la última pregunta? Es la más difícil...",
+      "¿Te gustaría ser nuestro testigo en la boda civil?"
     ];
 
-    const text  = [
+    const text = [
       "¡Aquí vienen! ¿Preparado?",
       "¡Di la verdad!",
       "No podemos esperar a que llegue el momento",
       "Contamos contigo",
-      "Listo..?"
+      "¿Listo...?"
     ];
-
 
     function siguientePregunta() {
       if (preguntaActual < preguntas.length - 1) {
@@ -123,7 +153,7 @@
     }
 
     function mostrarVideoFinal() {
-      document.getElementById("pregunta").textContent = "¡Gracias por aceptar ser mi testigo!";
+      document.getElementById("pregunta").textContent = "¡Gracias por aceptar ser nuestro testigo!";
       document.getElementById("imagen").style.display = "none";
       document.getElementById("btnSi").style.display = "none";
       document.getElementById("btnNo").style.display = "none";
@@ -134,8 +164,8 @@
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      const newWidth = Math.random() * width;
-      const newHeight = Math.random() * height;
+      const newWidth = Math.random() * (width - 100); // Evita que el botón se salga
+      const newHeight = Math.random() * (height - 50); // Evita que el botón se salga
 
       const btnNo = document.getElementById("btnNo");
       btnNo.style.position = "absolute";
