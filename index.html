@@ -104,7 +104,7 @@
     <h1 id="pregunta">Esperamos que sepas que eres alguien muy importante para nosotros</h1>
     <h2 id="text">Lo sabes, ¿cierto?</h2>
     <div id="buttons">
-      <button onclick="confirmarRespuesta()" id="btnSi">Sí</button>
+      <button id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
     </div>
     <video id="videoFinal" controls>
@@ -125,7 +125,7 @@
     ];
 
     const preguntas = [
-      "Por esa razón Monze y yo queremos hacerte algunas preguntas y ver que tan preparado estás",
+      "Por esa razón Monze y yo queremos hacerte algunas preguntas y ver qué tan preparado estás.",
       "¿Nos apoyarás en los momentos más importantes?",
       "¿Prometes estar siempre a nuestro lado?",
       "¿Disfrutarás cada momento de ese día especial con nosotros?",
@@ -141,12 +141,16 @@
       "¿Listo...?"
     ];
 
+    document.getElementById('btnSi').addEventListener('click', function() {
+      confirmarRespuesta();
+    });
+
     function confirmarRespuesta() {
       const respuesta = confirm("¿Estás seguro de tu respuesta?");
       if (respuesta) {
         siguientePregunta();
       } else {
-        alert("Puedes tomarte tu tiempo para pensar...");
+        alert("Puedes tomarte tu tiempo para pensar.");
       }
     }
 
