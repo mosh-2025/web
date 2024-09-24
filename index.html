@@ -116,29 +116,43 @@
   <script>
     let preguntaActual = 0;
 
-    const imagenes = [
-      "https://wallpapers.com/images/hd/hunter-x-hunter-iphone-2i26s0a4h0juws42.jpg",
-      "https://pbs.twimg.com/media/CnSuMhFWEAAbxir.jpg",
-      "img/3.jpeg",
-      "img/4.jpeg",
-      "https://images3.alphacoders.com/133/1330920.jpeg"
-    ];
-
-    const preguntas = [
-      "Por esa razón Monze y yo queremos hacerte algunas preguntas y ver qué tan preparado estás.",
-      "¿Nos apoyarás en los momentos más importantes?",
-      "¿Prometes estar siempre a nuestro lado?",
-      "¿Disfrutarás cada momento de ese día especial con nosotros?",
-      "¿Estás listo para la última pregunta? Es la más difícil...",
-      "¿Te gustaría ser nuestro testigo en la boda civil?"
-    ];
-
-    const text = [
-      "¡Aquí vienen! ¿Preparado?",
-      "¡Di la verdad!",
-      "No podemos esperar a que llegue el momento",
-      "Contamos contigo",
-      "¿Listo...?"
+    const preguntasModulos = [
+      {
+        pregunta: "Por esa razón Monze y yo queremos hacerte algunas preguntas y ver qué tan preparado estás.",
+        texto: "¡Aquí vienen! ¿Preparado?",
+        imagen: "https://wallpapers.com/images/hd/hunter-x-hunter-iphone-2i26s0a4h0juws42.jpg",
+        confirmacion: "¿Estás listo para la primera pregunta?"
+      },
+      {
+        pregunta: "¿Nos apoyarás en los momentos más importantes?",
+        texto: "¡Di la verdad!",
+        imagen: "https://pbs.twimg.com/media/CnSuMhFWEAAbxir.jpg",
+        confirmacion: "¿Seguro que nos apoyarás?"
+      },
+      {
+        pregunta: "¿Prometes estar siempre a nuestro lado?",
+        texto: "No podemos esperar a que llegue el momento",
+        imagen: "img/3.jpeg",
+        confirmacion: "¿Prometes estar siempre con nosotros?"
+      },
+      {
+        pregunta: "¿Disfrutarás cada momento de ese día especial con nosotros?",
+        texto: "Contamos contigo",
+        imagen: "img/4.jpeg",
+        confirmacion: "¿Seguro que disfrutarás con nosotros?"
+      },
+      {
+        pregunta: "¿Estás listo para la última pregunta? Es la más difícil...",
+        texto: "¿Listo...?",
+        imagen: "https://images3.alphacoders.com/133/1330920.jpeg",
+        confirmacion: "Esta es la última... ¿seguro que estás listo?"
+      },
+      {
+        pregunta: "¿Te gustaría ser nuestro testigo en la boda civil?",
+        texto: "Este es el gran momento...",
+        imagen: "img/5.jpeg",
+        confirmacion: "¿Aceptas ser nuestro testigo?"
+      }
     ];
 
     document.getElementById('btnSi').addEventListener('click', function() {
@@ -146,7 +160,8 @@
     });
 
     function confirmarRespuesta() {
-      const respuesta = confirm("¿Estás seguro de tu respuesta?");
+      const confirmacionTexto = preguntasModulos[preguntaActual].confirmacion;
+      const respuesta = confirm(confirmacionTexto);
       if (respuesta) {
         siguientePregunta();
       } else {
@@ -155,14 +170,19 @@
     }
 
     function siguientePregunta() {
-      if (preguntaActual < preguntas.length - 1) {
+      if (preguntaActual < preguntasModulos.length - 1) {
         preguntaActual++;
-        document.getElementById("pregunta").textContent = preguntas[preguntaActual];
-        document.getElementById("text").textContent = text[preguntaActual];
-        document.getElementById("imagen").src = imagenes[preguntaActual];
+        actualizarPregunta();
       } else {
         mostrarVideoFinal();
       }
+    }
+
+    function actualizarPregunta() {
+      const modulo = preguntasModulos[preguntaActual];
+      document.getElementById("pregunta").textContent = modulo.pregunta;
+      document.getElementById("text").textContent = modulo.texto;
+      document.getElementById("imagen").src = modulo.imagen;
     }
 
     function mostrarVideoFinal() {
