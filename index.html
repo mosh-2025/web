@@ -21,8 +21,14 @@
     }
     h1 {
       font-size: 32px;
-      color: #333;
+      color: #002ead;
     }
+
+    h3 {
+      font-size: 32px;
+      color: #67686b;
+    }
+
     #buttons {
       margin-top: 20px;
       display: flex;
@@ -62,8 +68,8 @@
 </head>
 <body>
   <div id="container">
-    <h2 id="pregunta">Esperamos que sepas que eres alguien muy importante para nosotros</h1>
-    <h1 id="text">Tenemos algunas preguntas para ti...</h3>
+    <h1 id="pregunta">Esperamos que sepas que eres alguien muy importante para nosotros</h1>
+    <h3 id="text">Tenemos algunas preguntas para ti...</h3>
     <div id="buttons">
       <button onclick="siguientePregunta()" id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
@@ -79,7 +85,6 @@
     let preguntaActual = 0;
 
     const preguntas = [
-      
       "¿Te imaginas el día de la boda conmigo?",
       "¿Me apoyarás en los momentos más importantes?",
       "¿Prometes estar siempre a mi lado?",
@@ -88,7 +93,7 @@
       
     ];
 
-    const text = [
+    const text  = [
       "Piensalo bien",
       "¡Di la verdad!",
       "No podemos esperar a que llegue el momento",
@@ -108,6 +113,7 @@
       if (preguntaActual < preguntas.length - 1) {
         preguntaActual++;
         document.getElementById("pregunta").textContent = preguntas[preguntaActual];
+        document.getElementById("text").textContent = text[preguntaActual];
         document.getElementById("imagen").src = imagenes[preguntaActual];
       } else {
         mostrarVideoFinal();
