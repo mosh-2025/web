@@ -67,14 +67,15 @@
   </style>
 </head>
 <body>
+  <img id="imagen" src="https://wallpapercave.com/wp/wp6852150.jpg" alt="Pregunta 1" width="auto">
   <div id="container">
     <h1 id="pregunta">Esperamos que sepas que eres alguien muy importante para nosotros</h1>
-    <h3 id="text">Tenemos algunas preguntas para ti...</h3>
+    <h3 id="text">Lo sabes, ¿cierto?...</h3>
     <div id="buttons">
       <button onclick="siguientePregunta()" id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
     </div>
-    <img id="imagen" src="img/1.jpeg" alt="Pregunta 1" width="300">
+    <img id="imagen" src="https://wallpapercave.com/wp/wp6852150.jpg" alt="Pregunta 1" width="auto">
     <video id="videoFinal" width="400" controls>
       <source src="video/final.mp4" type="video/mp4">
       Tu navegador no soporta la reproducción de video.
@@ -85,28 +86,29 @@
     let preguntaActual = 0;
 
     const preguntas = [
-      "¿Te imaginas el día de la boda conmigo?",
-      "¿Me apoyarás en los momentos más importantes?",
-      "¿Prometes estar siempre a mi lado?",
-      "¿Disfrutarás cada momento de ese día especial?",
-      "¿Estás listo para ser mi testigo en la boda?"
+      "Por esa razón Monze y yo queremos hacerte algunas preguntas y ver que tan preparado estás",
+      "¿Nos apoyarás en los momentos más importantes?",
+      "¿Prometes estar siempre a nuestro lado?",
+      "¿Disfrutarás cada momento de ese día especial con nostros?",
+      "¿Estás listo para la útima pregunta? Es la más difícil...",
+      "¿Te gustaría se nuestro testigo en la boda civil?"
       
     ];
 
     const text  = [
-      "Piensalo bien",
+      "¡Aquí vienen! ¿Preparado?",
       "¡Di la verdad!",
       "No podemos esperar a que llegue el momento",
       "Contamos contigo",
-      "Puedes tomarte tu tiempo"
+      "Listo..?"
     ];
 
     const imagenes = [
-      "img/1.jpeg",
-      "img/2.jpeg",
+      "https://wallpapers.com/images/hd/hunter-x-hunter-iphone-2i26s0a4h0juws42.jpg",
+      "https://pbs.twimg.com/media/CnSuMhFWEAAbxir.jpg",
       "img/3.jpeg",
       "img/4.jpeg",
-      "img/5.jpeg"
+      "https://images3.alphacoders.com/133/1330920.jpeg"
     ];
 
     function siguientePregunta() {
