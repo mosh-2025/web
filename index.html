@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>¡Hola! Tenemos una impotante propuesta que hacerte...</title>
+  <title>Para el bodoque</title>
   <style>
     body {
       margin: 0;
@@ -49,61 +49,77 @@
     #btnNo:hover {
       background-color: #d32f2f;
     }
-    img {
+    img, video {
       margin-top: 30px;
       max-width: 100%;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    video {
+      display: none;
+    }
   </style>
-  <script>
-    function aceptarPropuesta() {
-      alert("¡Gracias por ser mi testigo de boda! 🎉");
-    }
-
-    function mueveElBoton() {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
-      const newWidth = Math.random() * width;
-      const newHeight = Math.random() * height;
-
-      const btnNo = document.getElementById("btnNo");
-      btnNo.style.position = "absolute";
-      btnNo.style.left = newWidth + "px";
-      btnNo.style.top = newHeight + "px";
-    }
-  </script>
 </head>
 <body>
   <div id="container">
-    <img src="https://wallpapercave.com/wp/wp6852150.jpg" alt="Hermano feliz" width="200">
-    <h1>¿Quieres ser mi testigo de boda?</h1>
-    <p>Estás listo?...</p>
+    <h2 id="pregunta">Esperamos que sepas que eres alguien muy importante para nosotros</h1>
+    <h1 id="text">Tenemos algunas preguntas para ti...</h3>
     <div id="buttons">
-      <button onclick="aceptarPropuesta()" id="btnSi">Sí</button>
+      <button onclick="siguientePregunta()" id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
     </div>
-  </div>
-
-  <div id="container2"></div>
-    <img src="https://wallpapercave.com/wp/wp6852150.jpg" alt="Hermano feliz" width="200">
-    <h1>¿Quieres ser mi testigo de boda?</h1>
-    <p>Tengo algunas preguntas para ti...</p>
-    <div id="buttons">
-      <button onclick="aceptarPropuesta()" id="btnSi">Sí</button>
-      <button id="btnNo" onmouseover="mueveElBoton()">No</button>
-    </div>
+    <img id="imagen" src="img/1.jpeg" alt="Pregunta 1" width="300">
+    <video id="videoFinal" width="400" controls>
+      <source src="video/final.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de video.
+    </video>
   </div>
 
   <script>
-    function aceptarPropuesta() {
-      const respuesta = confirm("¿Estás seguro de querer ser mi testigo?");
-      if (respuesta) {
-        window.location.href = "opcionsi.html";
+    let preguntaActual = 0;
+
+    const preguntas = [
+      
+      "¿Te imaginas el día de la boda conmigo?",
+      "¿Me apoyarás en los momentos más importantes?",
+      "¿Prometes estar siempre a mi lado?",
+      "¿Disfrutarás cada momento de ese día especial?",
+      "¿Estás listo para ser mi testigo en la boda?"
+      
+    ];
+
+    const text = [
+      "Piensalo bien",
+      "¡Di la verdad!",
+      "No podemos esperar a que llegue el momento",
+      "Contamos contigo",
+      "Puedes tomarte tu tiempo"
+    ];
+
+    const imagenes = [
+      "img/1.jpeg",
+      "img/2.jpeg",
+      "img/3.jpeg",
+      "img/4.jpeg",
+      "img/5.jpeg"
+    ];
+
+    function siguientePregunta() {
+      if (preguntaActual < preguntas.length - 1) {
+        preguntaActual++;
+        document.getElementById("pregunta").textContent = preguntas[preguntaActual];
+        document.getElementById("imagen").src = imagenes[preguntaActual];
       } else {
-        alert("Espero que puedas reconsiderarlo 😊");
+        mostrarVideoFinal();
       }
+    }
+
+    function mostrarVideoFinal() {
+      document.getElementById("pregunta").textContent = "¡Gracias por aceptar ser mi testigo!";
+      document.getElementById("imagen").style.display = "none";
+      document.getElementById("btnSi").style.display = "none";
+      document.getElementById("btnNo").style.display = "none";
+      document.getElementById("videoFinal").style.display = "block";
     }
 
     function mueveElBoton() {
