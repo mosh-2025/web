@@ -23,9 +23,6 @@
       --button-yes-color: #4CAF50;
       --button-no-color: #f44336;
       --font-family: 'Outfit', sans-serif;
-      --last-question-font: 'Parisienne', cursive;
-      --witness-question-font: 'Dancing Script', cursive; /* Nueva fuente para la penúltima pregunta */
-      --final-thankyou-font: 'Great Vibes', cursive; /* Nueva fuente para la última */
     }
     
     body {
@@ -35,7 +32,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-image: url('https://img.freepik.com/vector-gratis/fondo-pantalla-comics-amarillos-diseno-plano_23-2148801759.jpg?semt=ais_hybrid');
+      background-image: url('https://png.pngtree.com/png-vector/20220925/ourlarge/pngtree-geometric-texture-pokeball-symbol-vector-seamless-pattern-background-augmented-illustration-vector-png-image_22857010.jpg');
       background-size: cover;
       background-position: center;
       font-family: var(--font-family);
@@ -55,21 +52,6 @@
       font-size: 24px;
       color: var(--secondary-color);
       margin-bottom: 20px;
-    }
-
-    .last-question h1 {
-      font-family: var(--last-question-font) !important;
-      color: #e91e63;
-    }
-
-    .witness-question h1 {
-      font-family: var(--witness-question-font) !important;
-      color: #f39c12;
-    }
-
-    .final-thankyou h1 {
-      font-family: var(--final-thankyou-font) !important;
-      color: #27ae60;
     }
 
     #buttons {
@@ -177,10 +159,10 @@
         confirmacion: "Ok, basta. La pregunta real es la siguiente... ¿seguro qué estás listo? 🤔"
       },
       {
-        pregunta: "Nos gustaría mucho que fueras nuestro testigo ¿Aceptas?",
-        texto: "Significa mucho para nosotros que nos acompañes de este modo en un momento tan importante.",
+        pregunta: "Significaría mucho que seas nuestro testigo en un momento tan importante.",
+        texto: "¿Aceptas?",
         imagen: "https://pbs.twimg.com/media/Fmyf5yJXEAYUYre.png",
-        confirmacion: "Lo quieres pensar un poco..."
+        confirmacion: "Está bien si lo quieres pensar un poco..."
       }
     ];
 
@@ -194,7 +176,7 @@
       if (respuesta) {
         siguientePregunta();
       } else {
-        alert("Puedes tomarte tu tiempo para pensarlo.");
+        alert("Puedes tomarte tu tiempo...");
       }
     }
 
@@ -215,22 +197,13 @@
       preguntaElement.textContent = modulo.pregunta;
       document.getElementById("text").textContent = modulo.texto;
       document.getElementById("imagen").src = modulo.imagen;
-
-      // Limpiar clases previas
-      preguntaElement.classList.remove('last-question', 'witness-question', 'final-thankyou');
-
-      // Agregar clase según la pregunta actual
-      if (preguntaActual === preguntasModulos.length - 2) {
-        preguntaElement.classList.add('witness-question'); // Penúltima pregunta
-      } else if (preguntaActual === preguntasModulos.length - 1) {
-        preguntaElement.classList.add('final-thankyou'); // Última pregunta
-      }
     }
 
 
     function mostrarVideoFinal() {
       document.getElementById("videoFinal").style.display = "block";
-      document.getElementById("pregunta").textContent = "¡Te queremos mucho! Y no sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa";
+      document.getElementById("pregunta").textContent = "¡Te queremos mucho!";
+      document.getElementById("texto").style.display = "No sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa";
       document.getElementById("imagen").style.display = "none";
       document.getElementById("btnSi").style.display = "none";
       document.getElementById("btnNo").style.display = "none";
