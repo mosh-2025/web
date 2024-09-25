@@ -115,9 +115,9 @@
 </head>
 <body>
   <div id="container">
-    <img id="imagen" src="https://i.pinimg.com/originals/29/95/c5/2995c56ff88ab3dc9aec2e7c9d196946.gif" alt="Pregunta 0">
-    <h1 id="pregunta">Esperamos que sepas que eres alguien muy importante para nosotros</h1>
-    <h2 id="text">Lo sabes, ¿cierto?</h2>
+    <img id="imagen" src="" alt="Pregunta 0">
+    <h1 id="pregunta"></h1>
+    <h2 id="text"></h2>
     <div id="buttons">
       <button id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
@@ -128,7 +128,12 @@
   <script>
     let preguntaActual = 0;
     const preguntasModulos = [
-      { confirmacion: "Más te vale que lo sepas 😒" },
+      { 
+        pregunta: "Esperamos que sepas que eres alguien muy importante para nosotros",
+        texto: "Lo sabes, ¿cierto?",
+        imagen: "https://i.pinimg.com/originals/29/95/c5/2995c56ff88ab3dc9aec2e7c9d196946.gif",
+        confirmacion: "Más te vale que lo sepas 😒" 
+      },
       {
         pregunta: "Queremos hacerte algunas preguntas y ver qué tan preparado estás para una tarea que solo tú podrías hacer.",
         texto: "¡No te pongas nervioso!",
@@ -182,6 +187,14 @@
       window.initialButtonPosition = {
         left: btnNo.offsetLeft,
         top: btnNo.offsetTop
+      };
+    }
+
+      function guardarPosicionInicial() {
+      const btnSi = document.getElementById("btnSi");
+      window.initialButtonPosition = {
+        left: btnSi.offsetright,
+        top: btnSi.offsetTop
       };
     }
 
