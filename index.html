@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <title>Para el bodoque</title>
-  
+
   <!-- Link to Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet"> <!-- Fuente especial para la última pregunta -->
@@ -32,7 +32,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5c97be82-69db-4546-bd74-4d5d1499d168/dd0xve2-c4a0066b-bf9a-4b6f-90e5-90d4751d4abe.png/v1/fill/w_1024,h_1821,q_80,strp/pokemon___pokeball_phone_wallpaper_by_brisity_dd0xve2-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTgyMSIsInBhdGgiOiJcL2ZcLzVjOTdiZTgyLTY5ZGItNDU0Ni1iZDc0LTRkNWQxNDk5ZDE2OFwvZGQweHZlMi1jNGEwMDY2Yi1iZjlhLTRiNmYtOTBlNS05MGQ0NzUxZDRhYmUucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.YJozVJ8nUBzD-FKEnm5s7FIlfx5yy0uVAoDxZ0vLX-k.png');
+      background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5c97be82-69db-4546-bd74-4d5d1499d168/dd0xve2-c4a0066b-bf9a-4b6f-90e5-90d4751d4abe.png/v1/fill/w_1024,h_1821,q_80,strp/pokemon___pokeball_phone_wallpaper_by_brisity_dd0xve2-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTgyMSIsInBhdGgiOiJcL2ZcLzVjOTdiZTgyLTY5ZGItNDU0Ni1iZDc0LTRkNWQxNDk5ZDE2OFwvZGQweHZlMi1jNGEwMDY2Yi1iZjlhLTRiNmYtOTBlNS05MGQ0NzUxZDRhYmUucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.YJozVJ8nUBzD-FKEnm5s7FIlfx5yy0uVAoDxZ0vLX-k');
       background-size: cover;
       background-position: center;
       font-family: var(--font-family);
@@ -118,7 +118,6 @@
     <img id="imagen" src="https://i.pinimg.com/originals/29/95/c5/2995c56ff88ab3dc9aec2e7c9d196946.gif" alt="Pregunta 0">
     <h1 id="pregunta">Esperamos que sepas que eres alguien muy importante para nosotros</h1>
     <h2 id="text">Lo sabes, ¿cierto?</h2>
-    <alert id="confirmacion"></alert>
     <div id="buttons">
       <button id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
@@ -167,8 +166,8 @@
       {
         pregunta: "¡Te queremos mucho!",
         texto: "No sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa",
-        imagen: id="videoFinal",
-        confirmacion: "Está bien si lo quieres pensar un poco..."
+        imagen: "https://i.pinimg.com/originals/6c/2f/1e/6c2f1ea7db3ac82ff5562ec050ef47ea.gif",
+        confirmacion: "Gracias por todo..."
       }
     ];
 
@@ -190,6 +189,9 @@
       if (preguntaActual < preguntasModulos.length - 1) {
         preguntaActual++;
         actualizarPregunta();
+      } else {
+        document.getElementById('videoFinal').style.display = 'block';
+      }
     }
 
     function actualizarPregunta() {
@@ -201,7 +203,6 @@
       document.getElementById("text").textContent = modulo.texto;
       document.getElementById("imagen").src = modulo.imagen;
     }
-  }
 
     function mueveElBoton() {
       const width = window.innerWidth;
