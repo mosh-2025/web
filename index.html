@@ -24,6 +24,8 @@
       --button-no-color: #f44336;
       --font-family: 'Outfit', sans-serif;
       --last-question-font: 'Parisienne', cursive;
+      --witness-question-font: 'Dancing Script', cursive; /* Nueva fuente para la penúltima pregunta */
+      --final-thankyou-font: 'Great Vibes', cursive; /* Nueva fuente para la última */
     }
     
     body {
@@ -58,6 +60,16 @@
     .last-question h1 {
       font-family: var(--last-question-font) !important;
       color: #e91e63;
+    }
+
+    .witness-question h1 {
+      font-family: var(--witness-question-font) !important;
+      color: #f39c12;
+    }
+
+    .final-thankyou h1 {
+      font-family: var(--final-thankyou-font) !important;
+      color: #27ae60;
     }
 
     #buttons {
@@ -197,15 +209,18 @@
 
     function actualizarPregunta() {
       const modulo = preguntasModulos[preguntaActual];
+      const preguntaElement = document.getElementById("pregunta");
+
       document.getElementById("pregunta").textContent = modulo.pregunta;
       document.getElementById("text").textContent = modulo.texto;
       document.getElementById("imagen").src = modulo.imagen;
 
-      // Cambiar la fuente de la última pregunta
-      if (preguntaActual === preguntasModulos.length - 1) {
-        document.getElementById("pregunta").classList.add('last-question');
-      } else {
-        document.getElementById("pregunta").classList.remove('last-question');
+      preguntaElement.classList.remove('last-question', 'witness-question', 'final-thankyou'); // Limpiar clases previas
+
+      if (preguntaActual === preguntasModulos.length - 2) { 
+        preguntaElement.classList.add('witness-question'); // Penúltima pregunta
+      } else if (preguntaActual === preguntasModulos.length - 1) {
+        preguntaElement.classList.add('final-thankyou'); // Última pregunta
       }
     }
 
