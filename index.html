@@ -159,7 +159,7 @@
         confirmacion: "Ok, basta. La pregunta real es la siguiente... ¿seguro qué estás listo? 🤔"
       },
       {
-        pregunta: "Significaría mucho para nosotros que seas nuestro testigo en un momento tan importante.",
+        pregunta: "Significaría mucho para nosotros que seas nuestro testigo en la boda civil. 🤵",
         texto: "¿Aceptas?",
         imagen: "https://pbs.twimg.com/media/Fmyf5yJXEAYUYre.png",
         confirmacion: "Está bien si lo quieres pensar un poco..."
@@ -204,8 +204,12 @@
     }
 
     function mostrarVideoFinal() {
+      document.getElementById('videoFinal').src = preguntasModulos[preguntaActual].videoFinal;
       document.getElementById('videoFinal').style.display = 'block';
-      document.getElementById('container').querySelector('img, h1, h2, #buttons').style.display = 'none';
+      document.querySelector('img').style.display = 'none'; // Oculta la imagen
+      document.querySelector('h1').style.display = 'none';
+      document.querySelector('h2').style.display = 'none';
+      document.getElementById('buttons').style.display = 'none';
     }
 
     function actualizarPregunta() {
