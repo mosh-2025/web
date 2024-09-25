@@ -115,14 +115,14 @@
 </head>
 <body>
   <div id="container">
-    <img id="imagen" src="" alt="Pregunta 0">
+    <img id="imagen" src="" >
     <h1 id="pregunta"></h1>
-    <h2 id="text"></h2>
+    <h2 id="texto"></h2>
     <div id="buttons">
       <button id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
     </div>
-    <iframe id="videoFinal" src="https://www.youtube.com/embed/ZYMkmW0TTSg?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe id="videoFinal" src=" " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 
   <script>
@@ -148,7 +148,7 @@
       },
       {
         pregunta: "Es broma, en realidad queremos preguntarte algo muy importante",
-        texto: "¿Listo...?",
+        texto: "¿Listo...? ",
         imagen: "https://i.pinimg.com/originals/6c/2f/1e/6c2f1ea7db3ac82ff5562ec050ef47ea.gif",
         confirmacion: "Aquí viene..."
       },
@@ -167,7 +167,8 @@
       {
         pregunta: "¡Te queremos mucho!",
         texto: "No sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa",
-        confirmacion: "Gracias por todo..."
+        videoFinal: "https://www.youtube.com/embed/ZYMkmW0TTSg?autoplay=1",
+        confirmacion: "Gracias por todo...",
       }
     ];
 
@@ -177,25 +178,9 @@
     };
 
     function inicializar() {
-      guardarPosicionInicial();
       actualizarPregunta();
       document.getElementById('btnSi').addEventListener('click', confirmarRespuesta);
-    }
-
-    function guardarPosicionInicial() {
-      const btnNo = document.getElementById("btnNo");
-      window.initialButtonPosition = {
-        left: btnNo.offsetLeft,
-        center: btnNo.offsetTop
-      };
-    }
-
-      function guardarPosicionInicial() {
-      const btnSi = document.getElementById("btnSi");
-      window.initialButtonPosition = {
-        right: btnSi.offsetRight,
-        center: btnSi.offsetTop
-      };
+      document.getElementById('videoFinal').style.display = 'none'; // Asegúrate de que el video esté oculto al inicio
     }
 
     function confirmarRespuesta() {
@@ -226,15 +211,14 @@
     function actualizarPregunta() {
       const modulo = preguntasModulos[preguntaActual];
       document.getElementById("pregunta").textContent = modulo.pregunta;
-      document.getElementById("text").textContent = modulo.texto;
-      document.getElementById("imagen").src = modulo.imagen;
+      document.getElementById("texto").textContent = modulo.texto;
+      document.getElementById("imagen").src = modulo.imagen || ""; // Solo establece la imagen si está disponible
+      document.getElementById("imagen").style.display = modulo.imagen ? "block" : "none"; // Oculta la imagen si no hay
     }
 
     function resetButtonPosition() {
       const btnNo = document.getElementById("btnNo");
-      btnNo.style.position = "absolute";
-      btnNo.style.left = initialButtonPosition.left + "px";
-      btnNo.style.top = initialButtonPosition.top + "px";
+      btnNo.style.position = "static"; // Restablecer la posición a la normalidad
     }
 
     function mueveElBoton() {
