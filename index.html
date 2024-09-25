@@ -136,7 +136,7 @@
         pregunta: "¿Conoces el nombre de todos lo pokémon?",
         texto: "Piensa bien tu respuesta",
         imagen: "https://pngimg.com/image/27825.png",
-        confirmacion: "¿Estás seguro?"
+        confirmacion: "Sabiamos que podiamos contar contigo"
       },
       {
         pregunta: "Si te pidieramos que digeras el nombre de cada pokémon en orden, ¿lo lograrías?",
@@ -145,16 +145,22 @@
         confirmacion: "¿Aceptas el reto?"
       },
       {
-        pregunta: "Es broma, solo queremos saber algo muy importante",
-        texto: "¿Listo...?",
-        imagen: "https://images3.alphacoders.com/133/1330920.jpeg",
-        confirmacion: "Esta es la última... ¿seguro que estás listo?"
-      },
-      {
         pregunta: "¿Te atreverías a cantar karaoke frente a todos los invitados de nuestra boda?",
         texto: "Este es tu gran momento...",
         imagen: "https://i.pinimg.com/originals/8a/4b/a2/8a4ba2c3ccb773e98bee286af761f847.gif",
-        confirmacion: "¿Aceptas ser nuestro testigo?"
+        confirmacion: "Nos gustaría mucho que fueras nuestro testigo ¿Aceptas?"
+      },
+      {
+        pregunta: "Es broma, solo queremos saber algo muy importante",
+        texto: "¿Listo...?",
+        imagen: "https://i.pinimg.com/originals/6c/2f/1e/6c2f1ea7db3ac82ff5562ec050ef47ea.gif",
+        confirmacion: "Esta es la última... ¿seguro qué estás listo?"
+      },
+      {
+        pregunta: "Nos gustaría mucho que fueras nuestro testigo ¿Aceptas?",
+        texto: "Significa mucho para nosotros que nos acompañes de este modo en un momento tan importante.",
+        imagen: "https://i.pinimg.com/originals/8a/4b/a2/8a4ba2c3ccb773e98bee286af761f847.gif",
+        confirmacion: "Lo quieres pensar un poco..."
       }
     ];
 
@@ -173,7 +179,7 @@
     }
 
     function siguientePregunta() {
-      if (preguntaActual < preguntasModulos.length - 1) {
+      if (preguntaActual < preguntasModulos.length - 0) {
         preguntaActual++;
         actualizarPregunta();
       } else {
@@ -189,11 +195,12 @@
     }
 
     function mostrarVideoFinal() {
+      document.getElementById("videoFinal").style.display = "block";
       document.getElementById("pregunta").textContent = "¡Te queremo mucho! Y no sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa";
       document.getElementById("imagen").style.display = "none";
       document.getElementById("btnSi").style.display = "none";
       document.getElementById("btnNo").style.display = "none";
-      document.getElementById("videoFinal").style.display = "block";
+      
     }
 
     function mueveElBoton() {
