@@ -127,12 +127,8 @@
 
   <script>
     let preguntaActual = 0;
-
     const preguntasModulos = [
-      {
-        confirmacion: "Más te vale que lo sepas 😒" 
-      },
-      
+      { confirmacion: "Más te vale que lo sepas 😒" },
       {
         pregunta: "Queremos hacerte algunas preguntas y ver qué tan preparado estás para una tarea que solo tú podrías hacer.",
         texto: "¡No te pongas nervioso!",
@@ -153,7 +149,7 @@
       },
       {
         pregunta: "¿Te gustaría cantar en karaoke la canción de jigglypuff frente a todos los invitados de nuestra boda?",
-        texto: "Sería muy divertido 😂", 
+        texto: "Sería muy divertido 😂",
         imagen: "https://i.pinimg.com/originals/8a/4b/a2/8a4ba2c3ccb773e98bee286af761f847.gif",
         confirmacion: "Ok, basta. La pregunta real es la siguiente... ¿seguro qué estás listo? 🤔"
       },
@@ -170,9 +166,24 @@
       }
     ];
 
-    document.getElementById('btnSi').addEventListener('click', function() {
-      confirmarRespuesta();
-    });
+    // Al cargar la página, guarda la posición inicial del botón "No"
+    window.onload = function() {
+      inicializar();
+    };
+
+    function inicializar() {
+      guardarPosicionInicial();
+      actualizarPregunta();
+      document.getElementById('btnSi').addEventListener('click', confirmarRespuesta);
+    }
+
+    function guardarPosicionInicial() {
+      const btnNo = document.getElementById("btnNo");
+      window.initialButtonPosition = {
+        left: btnNo.offsetLeft,
+        top: btnNo.offsetTop
+      };
+    }
 
     function confirmarRespuesta() {
       const confirmacionTexto = preguntasModulos[preguntaActual].confirmacion;
@@ -184,57 +195,42 @@
       }
     }
 
-    let initialButtonPosition = {}; // Objeto para guardar la posición inicial
-
-    // Al cargar la página, guarda la posición inicial del botón "No"
-    window.onload = function() {
-      const btnNo = document.getElementById("btnNo");
-      initialButtonPosition = {
-        left: btnNo.offsetLeft,
-        top: btnNo.offsetTop
-      };
-    };
-
     function siguientePregunta() {
       if (preguntaActual < preguntasModulos.length - 1) {
         preguntaActual++;
         resetButtonPosition(); // Restablece la posición del botón "No"
         actualizarPregunta();
       } else {
-        document.getElementById('videoFinal').style.display = 'block';
+        mostrarVideoFinal();
       }
+    }
+
+    function mostrarVideoFinal() {
+      document.getElementById('videoFinal').style.display = 'block';
+      document.getElementById('container').querySelector('img, h1, h2, #buttons').style.display = 'none';
     }
 
     function actualizarPregunta() {
       const modulo = preguntasModulos[preguntaActual];
-      const preguntaElement = document.getElementById("pregunta");
-
-      // Actualiza el contenido de la pregunta y el texto
-      preguntaElement.textContent = modulo.pregunta;
+      document.getElementById("pregunta").textContent = modulo.pregunta;
       document.getElementById("text").textContent = modulo.texto;
       document.getElementById("imagen").src = modulo.imagen;
     }
 
     function resetButtonPosition() {
       const btnNo = document.getElementById("btnNo");
-      
-      // Restablece la posición original del botón
       btnNo.style.position = "absolute";
       btnNo.style.left = initialButtonPosition.left + "px";
       btnNo.style.top = initialButtonPosition.top + "px";
     }
 
     function mueveElBoton() {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
-      const newWidth = Math.random() * (width - 100); // Evita que el botón se salga
-      const newHeight = Math.random() * (height - 50); // Evita que el botón se salga
-
+      const width = window.innerWidth - 100; // Evita que el botón se salga
+      const height = window.innerHeight - 50; // Evita que el botón se salga
       const btnNo = document.getElementById("btnNo");
       btnNo.style.position = "absolute";
-      btnNo.style.left = newWidth + "px";
-      btnNo.style.top = newHeight + "px";
+      btnNo.style.left = Math.random() * width + "px";
+      btnNo.style.top = Math.random() * height + "px";
     }
   </script>
 </body>
