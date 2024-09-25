@@ -166,7 +166,6 @@
       {
         pregunta: "¡Te queremos mucho!",
         texto: "No sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa",
-        imagen: "https://i.pinimg.com/originals/6c/2f/1e/6c2f1ea7db3ac82ff5562ec050ef47ea.gif",
         confirmacion: "Gracias por todo..."
       }
     ];
@@ -185,9 +184,21 @@
       }
     }
 
+    let initialButtonPosition = {}; // Objeto para guardar la posición inicial
+
+    // Al cargar la página, guarda la posición inicial del botón "No"
+    window.onload = function() {
+      const btnNo = document.getElementById("btnNo");
+      initialButtonPosition = {
+        left: btnNo.offsetLeft,
+        top: btnNo.offsetTop
+      };
+    };
+
     function siguientePregunta() {
       if (preguntaActual < preguntasModulos.length - 1) {
         preguntaActual++;
+        resetButtonPosition(); // Restablece la posición del botón "No"
         actualizarPregunta();
       } else {
         document.getElementById('videoFinal').style.display = 'block';
@@ -202,6 +213,15 @@
       preguntaElement.textContent = modulo.pregunta;
       document.getElementById("text").textContent = modulo.texto;
       document.getElementById("imagen").src = modulo.imagen;
+    }
+
+    function resetButtonPosition() {
+      const btnNo = document.getElementById("btnNo");
+      
+      // Restablece la posición original del botón
+      btnNo.style.position = "absolute";
+      btnNo.style.left = initialButtonPosition.left + "px";
+      btnNo.style.top = initialButtonPosition.top + "px";
     }
 
     function mueveElBoton() {
