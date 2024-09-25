@@ -116,7 +116,7 @@
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
     </div>
     <video id="videoFinal" controls>
-      <source src="video/final.mp4" type="video/mp4">
+      <source src="https://www.youtube.com/embed/MDHfHuynUnE" type="video/mp4">
       Tu navegador no soporta la reproducción de video.
     </video>
   </div>
@@ -125,40 +125,35 @@
     let preguntaActual = 0;
 
     const preguntasModulos = [
-      {
+      
+    {
         pregunta: "Por esa razón Monze y yo queremos hacerte algunas preguntas y ver qué tan preparado estás.",
         texto: "¡Aquí vienen! ¿Preparado?",
         imagen: "https://wallpapers.com/images/hd/hunter-x-hunter-iphone-2i26s0a4h0juws42.jpg",
         confirmacion: "¿Estás listo para la primera pregunta?"
       },
       {
-        pregunta: "¿Nos apoyarás en los momentos más importantes?",
-        texto: "¡Di la verdad!",
-        imagen: "https://pbs.twimg.com/media/CnSuMhFWEAAbxir.jpg",
-        confirmacion: "¿Seguro que nos apoyarás?"
+        pregunta: "¿Conoces el nombre de todos lo pokémon?",
+        texto: "Piensa bien tu respuesta",
+        imagen: "https://pngimg.com/image/27825.png",
+        confirmacion: "¿Estás seguro?"
       },
       {
-        pregunta: "¿Prometes estar siempre a nuestro lado?",
-        texto: "No podemos esperar a que llegue el momento",
-        imagen: "img/3.jpeg",
-        confirmacion: "¿Prometes estar siempre con nosotros?"
-      },
-      {
-        pregunta: "¿Disfrutarás cada momento de ese día especial con nosotros?",
+        pregunta: "Si te pidieramos que digeras el nombre de cada pokémon en orden, ¿lo lograrías?",
         texto: "Contamos contigo",
-        imagen: "img/4.jpeg",
-        confirmacion: "¿Seguro que disfrutarás con nosotros?"
+        imagen: "https://assets.isu.pub/document-structure/210405202957-4f9bb1b9ccc0600854b2698babdc5f08/v1/3c617d872690da3721ba8e4c9dc08f52.jpg?width=720&quality=85%2C50",
+        confirmacion: "¿Aceptas el reto?"
       },
       {
-        pregunta: "¿Estás listo para la última pregunta? Es la más difícil...",
+        pregunta: "Es broma, solo queremos saber algo muy importante",
         texto: "¿Listo...?",
         imagen: "https://images3.alphacoders.com/133/1330920.jpeg",
         confirmacion: "Esta es la última... ¿seguro que estás listo?"
       },
       {
-        pregunta: "¿Te gustaría ser nuestro testigo en la boda civil?",
-        texto: "Este es el gran momento...",
-        imagen: "img/5.jpeg",
+        pregunta: "¿Te atreverías a cantar karaoke frente a todos los invitados de nuestra boda?",
+        texto: "Este es tu gran momento...",
+        imagen: "https://i.pinimg.com/originals/8a/4b/a2/8a4ba2c3ccb773e98bee286af761f847.gif",
         confirmacion: "¿Aceptas ser nuestro testigo?"
       }
     ];
@@ -173,7 +168,7 @@
       if (respuesta) {
         siguientePregunta();
       } else {
-        alert("Puedes tomarte tu tiempo para pensar.");
+        alert("Puedes tomarte tu tiempo para pensarlo.");
       }
     }
 
@@ -194,7 +189,7 @@
     }
 
     function mostrarVideoFinal() {
-      document.getElementById("pregunta").textContent = "¡Gracias por aceptar ser nuestro testigo!";
+      document.getElementById("pregunta").textContent = "¡Te queremo mucho! Y no sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa";
       document.getElementById("imagen").style.display = "none";
       document.getElementById("btnSi").style.display = "none";
       document.getElementById("btnNo").style.display = "none";
