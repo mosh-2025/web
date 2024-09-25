@@ -176,16 +176,12 @@
 
     function confirmarRespuesta() {
       const confirmacionTexto = preguntasModulos[preguntaActual].confirmacion;
-      const respuesta = confirm(confirmacionTexto);
-      if (respuesta) {
-        siguientePregunta();
-      } else {
-        alert("Puedes tomarte tu tiempo para pensarlo.");
-      }
+      alert(confirmacionTexto);
+      siguientePregunta();
     }
 
     function siguientePregunta() {
-      if (preguntaActual < preguntasModulos.length - 0) {
+      if (preguntaActual < preguntasModulos.length - 1) {
         preguntaActual++;
         actualizarPregunta();
       } else {
@@ -202,11 +198,10 @@
 
     function mostrarVideoFinal() {
       document.getElementById("videoFinal").style.display = "block";
-      document.getElementById("pregunta").textContent = "¡Te queremo mucho! Y no sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa";
+      document.getElementById("pregunta").textContent = "¡Te queremos mucho! Y no sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa";
       document.getElementById("imagen").style.display = "none";
       document.getElementById("btnSi").style.display = "none";
       document.getElementById("btnNo").style.display = "none";
-      
     }
 
     function mueveElBoton() {
