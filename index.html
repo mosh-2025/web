@@ -10,7 +10,7 @@
   <title>Para el bodoque</title>
 
   <!-- Link to Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet"> <!-- Fuente especial para la última pregunta -->
 
   <!-- Favicon -->
@@ -22,7 +22,7 @@
       --secondary-color: #f01212;
       --button-yes-color: #4CAF50;
       --button-no-color: #f44336;
-      --font-family: 'Outfit', sans-serif;
+      --font-family: 'Sulphur+Point', sans-serif;
     }
     
     body {
@@ -35,7 +35,7 @@
       background-image: url('https://wallpapers.com/images/hd/pikachu-iphone-evolution-silhouettes-js08b726vwgm1m37.jpg');
       background-size: cover;
       background-position: center;
-      font-family: var(--font-family);
+      font-family: var(--font-family-pregunta);
     }
 
     #container {
@@ -44,14 +44,20 @@
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 30px;
       color: var(--primary-color);
+      font-family: var(--font-family-pregunta); /* Fuente para las preguntas */
     }
 
     h2 {
-      font-size: 24px;
+      font-size: 25px;
       color: var(--secondary-color);
       margin-bottom: 20px;
+      font-family: var(--font-family-texto); /* Fuente para el texto */
+    }
+
+    #pregunta-italic {
+      font-style: italic; /* Cursiva para esta pregunta específica */
     }
 
     #buttons {
@@ -138,9 +144,9 @@
       },
       {
         pregunta: "Queremos hacerte algunas preguntas y ver qué tan preparado estás para una tarea que solo tú podrías hacer.",
-        texto: "¡No te pongas nervioso!",
+        texto: "¿Estás listo para la primer pregunta?",
         imagen: "https://i.pinimg.com/originals/e5/3c/8c/e53c8c851f019175cb57cf7e57bb2dd4.gif",
-        confirmacion: "¿Estás listo para la primer pregunta? 🤓"
+        confirmacion: "¡No te pongas nervioso! 🤓"
       },
       {
         pregunta: "¿Conoces el nombre de todos los pokémon de la primera generación?",
@@ -216,10 +222,19 @@
 
     function actualizarPregunta() {
       const modulo = preguntasModulos[preguntaActual];
-      document.getElementById("pregunta").textContent = modulo.pregunta;
+      const preguntaElement = document.getElementById("pregunta");
+      preguntaElement.textContent = modulo.pregunta;
+
+      // Verifica si es la pregunta específica que debe estar en cursiva
+      if (preguntaActual === 5) { 
+        preguntaElement.classList.add("pregunta-italic");
+      } else {
+        preguntaElement.classList.remove("pregunta-italic");
+      }
+
       document.getElementById("texto").textContent = modulo.texto;
-      document.getElementById("imagen").src = modulo.imagen || ""; // Solo establece la imagen si está disponible
-      document.getElementById("imagen").style.display = modulo.imagen ? "block" : "none"; // Oculta la imagen si no hay
+      document.getElementById("imagen").src = modulo.imagen || ""; 
+      document.getElementById("imagen").style.display = modulo.imagen ? "block" : "none";
     }
 
     function resetButtonPosition() {
