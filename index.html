@@ -163,6 +163,12 @@
         texto: "¿Aceptas?",
         imagen: "https://pbs.twimg.com/media/Fmyf5yJXEAYUYre.png",
         confirmacion: "Está bien si lo quieres pensar un poco..."
+      },
+      {
+        pregunta: "¡Te queremos mucho!",
+        texto: "No sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa",
+        imagen: ("videoFinal"),
+        confirmacion: "Está bien si lo quieres pensar un poco..."
       }
     ];
 
@@ -184,9 +190,6 @@
       if (preguntaActual < preguntasModulos.length - 1) {
         preguntaActual++;
         actualizarPregunta();
-      } else {
-        mostrarVideoFinal();
-      }
     }
 
     function actualizarPregunta() {
@@ -198,16 +201,7 @@
       document.getElementById("text").textContent = modulo.texto;
       document.getElementById("imagen").src = modulo.imagen;
     }
-
-
-    function mostrarVideoFinal() {
-      document.getElementById("videoFinal").style.display = "block";
-      document.getElementById("pregunta").textContent = "¡Te queremos mucho!";
-      document.getElementById("texto").textContent = "No sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa";
-      document.getElementById("imagen").style.display = "none";
-      document.getElementById("btnSi").style.display = "none";
-      document.getElementById("btnNo").style.display = "none";
-    }
+  }
 
     function mueveElBoton() {
       const width = window.innerWidth;
