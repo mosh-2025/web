@@ -123,8 +123,8 @@
       <button id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
     </div>
-    <video id="videoFinal" width="640" height="360" autoplay>
-           <source src="https://www.youtube.com/embed/ZYMkmW0TTSg" type="video/mp4"></src>
+    <video id="videoFinal">
+      <iframe id="videoFinal" width="640" height="360" src="https://www.youtube.com/embed/ZYMkmW0TTSg?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         Tu navegador no soporta la reproducción de video.
     </video>
   </div>
@@ -134,12 +134,12 @@
 
     const preguntasModulos = [
       {
-        confirmacion: "Más te vale que lo sepas"
+        confirmacion: "Más te vale que lo sepas" 😒
       },
       
       {
-        pregunta: "Por esa razón Monze y yo queremos hacerte algunas preguntas y ver qué tan preparado estás.",
-        texto: "¡Aquí vienen!",
+        pregunta: "Por esa razón queremos hacerte algunas preguntas y ver qué tan preparado estás.",
+        texto: "¡Son muy importantes!",
         imagen: "https://i.pinimg.com/originals/e5/3c/8c/e53c8c851f019175cb57cf7e57bb2dd4.gif",
         confirmacion: "¿Estás listo para la primer pregunta?"
       },
@@ -150,20 +150,14 @@
         confirmacion: "Sabíamos que podiamos contar contigo"
       },
       {
-        pregunta: "Si te pidieramos que digeras el nombre de cada pokémon en orden",
-        texto: "¿Lo lograrías?",
-        imagen: "https://assets.isu.pub/document-structure/210405202957-4f9bb1b9ccc0600854b2698babdc5f08/v1/3c617d872690da3721ba8e4c9dc08f52.jpg?width=720&quality=85%2C50",
-        confirmacion: "¿Estás seguro?"
-      },
-      {
         pregunta: "Es broma, en realidad queremos preguntarte algo muy importante",
         texto: "¿Listo...?",
         imagen: "https://i.pinimg.com/originals/6c/2f/1e/6c2f1ea7db3ac82ff5562ec050ef47ea.gif",
-        confirmacion: "Esta es la última... ¿o tal vez no?"
+        confirmacion: "Aquí viene..."
       },
       {
-        pregunta: "¿Te atreverías a cantar en karaoke la canción de jigglypuff frente a todos los invitados de nuestra boda?",
-        texto: "Será divertido",
+        pregunta: "¿Te gustaría cantar en karaoke la canción de jigglypuff frente a todos los invitados de nuestra boda?",
+        texto: "Sería muy divertido", 😂
         imagen: "https://i.pinimg.com/originals/8a/4b/a2/8a4ba2c3ccb773e98bee286af761f847.gif",
         confirmacion: "Ok, basta. La pregunta real es la siguiente... ¿seguro qué estás listo?"
       },
