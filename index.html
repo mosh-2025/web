@@ -162,7 +162,7 @@
         pregunta: "¿Conoces el nombre de todos lo pokémon primera generación?",
         texto: "Piensa bien tu respuesta",
         imagen: "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2019/08/pokemon_10.jpg",
-        confirmacion: "Sabíamos que podiamos contar contigo"
+        confirmacion: "¡Yay! ¡Sabíamos que podiamos contar contigo! 🤗"
       },
       {
         pregunta: "Es broma, en realidad queremos preguntarte algo muy importante",
@@ -211,18 +211,22 @@
       const modulo = preguntasModulos[preguntaActual];
       const preguntaElement = document.getElementById("pregunta");
 
-      document.getElementById("pregunta").textContent = modulo.pregunta;
+      // Actualiza el contenido de la pregunta y el texto
+      preguntaElement.textContent = modulo.pregunta;
       document.getElementById("text").textContent = modulo.texto;
       document.getElementById("imagen").src = modulo.imagen;
 
-      preguntaElement.classList.remove('last-question', 'witness-question', 'final-thankyou'); // Limpiar clases previas
+      // Limpiar clases previas
+      preguntaElement.classList.remove('last-question', 'witness-question', 'final-thankyou');
 
-      if (preguntaActual === preguntasModulos.length - 2) { 
+      // Agregar clase según la pregunta actual
+      if (preguntaActual === preguntasModulos.length - 2) {
         preguntaElement.classList.add('witness-question'); // Penúltima pregunta
       } else if (preguntaActual === preguntasModulos.length - 1) {
         preguntaElement.classList.add('final-thankyou'); // Última pregunta
       }
     }
+
 
     function mostrarVideoFinal() {
       document.getElementById("videoFinal").style.display = "block";
