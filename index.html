@@ -89,7 +89,7 @@
       background-color: #d32f2f;
     }
 
-    img, video {
+    img {
       width: 100%;
       max-width: 600px;
       border-radius: 10px;
@@ -97,8 +97,12 @@
       margin-top: 20px;
     }
 
-    video {
+    iframe {
       display: none;
+      width: 100%;
+      max-width: 600px;
+      height: 360px;
+      margin-top: 20px;
     }
 
     @media (max-width: 768px) {
@@ -123,10 +127,7 @@
       <button id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
     </div>
-    <video id="videoFinal">
-      <iframe id="videoFinal" width="640" height="360" src="https://www.youtube.com/embed/ZYMkmW0TTSg?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        Tu navegador no soporta la reproducción de video.
-    </video>
+    <iframe id="videoFinal" src="https://www.youtube.com/embed/ZYMkmW0TTSg?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 
   <script>
@@ -134,7 +135,7 @@
 
     const preguntasModulos = [
       {
-        confirmacion: "Más te vale que lo sepas" 😒
+        confirmacion: "Más te vale que lo sepas 😒" 
       },
       
       {
@@ -157,7 +158,7 @@
       },
       {
         pregunta: "¿Te gustaría cantar en karaoke la canción de jigglypuff frente a todos los invitados de nuestra boda?",
-        texto: "Sería muy divertido", 😂
+        texto: "Sería muy divertido 😂", 
         imagen: "https://i.pinimg.com/originals/8a/4b/a2/8a4ba2c3ccb773e98bee286af761f847.gif",
         confirmacion: "Ok, basta. La pregunta real es la siguiente... ¿seguro qué estás listo?"
       },
@@ -212,9 +213,6 @@
       document.getElementById("imagen").style.display = "none";
       document.getElementById("btnSi").style.display = "none";
       document.getElementById("btnNo").style.display = "none";
-
-      const video = document.getElementById("videoFinal");
-      video.play();  // Inicia el video automáticamente
     }
 
     function mueveElBoton() {
