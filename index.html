@@ -165,7 +165,7 @@
       {
         pregunta: "Nos gustaría mucho que fueras nuestro testigo ¿Aceptas?",
         texto: "Significa mucho para nosotros que nos acompañes de este modo en un momento tan importante.",
-        imagen: "https://i.pinimg.com/originals/8a/4b/a2/8a4ba2c3ccb773e98bee286af761f847.gif",
+        imagen: "https://pbs.twimg.com/media/Fmyf5yJXEAYUYre.png",
         confirmacion: "Lo quieres pensar un poco..."
       }
     ];
@@ -176,8 +176,12 @@
 
     function confirmarRespuesta() {
       const confirmacionTexto = preguntasModulos[preguntaActual].confirmacion;
-      alert(confirmacionTexto);
-      siguientePregunta();
+      const respuesta = confirm(confirmacionTexto);
+      if (respuesta) {
+        siguientePregunta();
+      } else {
+        alert("Puedes tomarte tu tiempo para pensarlo.");
+      }
     }
 
     function siguientePregunta() {
