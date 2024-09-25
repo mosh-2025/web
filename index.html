@@ -193,7 +193,7 @@
       function guardarPosicionInicial() {
       const btnSi = document.getElementById("btnSi");
       window.initialButtonPosition = {
-        left: btnSi.offsetright,
+        right: btnSi.offsetright,
         top: btnSi.offsetTop
       };
     }
@@ -238,12 +238,16 @@
     }
 
     function mueveElBoton() {
-      const width = window.innerWidth - 100; // Evita que el botón se salga
-      const height = window.innerHeight - 50; // Evita que el botón se salga
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      const newWidth = Math.random() * (width - 100); // Evita que el botón se salga
+      const newHeight = Math.random() * (height - 50); // Evita que el botón se salga
+
       const btnNo = document.getElementById("btnNo");
       btnNo.style.position = "absolute";
-      btnNo.style.left = Math.random() * width + "px";
-      btnNo.style.top = Math.random() * height + "px";
+      btnNo.style.left = newWidth + "px";
+      btnNo.style.top = newHeight + "px";
     }
   </script>
 </body>
