@@ -24,8 +24,9 @@
       --button-yes-color: #4CAF50;
       --button-no-color: #f44336;
       --font-family: 'Sulphur+Point', sans-serif;
-      --font-family-pregunta: 'Kulim+Park:ital', sans-serif;
-      --font-family-texto: 'Parisienne', sans-serif;
+      --font-family-pregunta: 'Sulphur+Point', sans-serif;
+      --font-family-texto: 'Kulim+Park', sans-serif;
+      --font-family-pregunta-final: 'Parisienne', sans-serif;
     }
     
     body {
@@ -59,7 +60,7 @@
     }
 
     #pregunta-italic {
-      font-style: italic; /* Cursiva para esta pregunta específica */
+      --font-family: var(--font-family-pregunta-final); /* Cursiva para esta pregunta específica */
     }
 
     #buttons {
