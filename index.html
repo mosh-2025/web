@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <title>Para el bodoque</title>
   
   <!-- Link to Google Fonts -->
@@ -120,14 +123,9 @@
       <button id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
     </div>
-    <video id="videoFinal" controls autoplay muted>
-      <iframe width="640" height="360" src="https://www.youtube.com/embed/ZYMkmW0TTSg" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" 
-              allowfullscreen>
-        </iframe>
-      Tu navegador no soporta la reproducción de video.
+    <video id="videoFinal" width="640" height="360" autoplay>
+           <source src="https://www.youtube.com/embed/ZYMkmW0TTSg" type="video/mp4"></src>
+        Tu navegador no soporta la reproducción de video.
     </video>
   </div>
 
