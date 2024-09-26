@@ -204,12 +204,13 @@
     }
 
     function siguientePregunta() {
+      alert(preguntaActual);
       if (preguntaActual < preguntasModulos.length - 1) {
         preguntaActual++;
         resetButtonPosition();
         actualizarPregunta();
       } else {
-        //actualizarPregunta();
+        actualizarPregunta();
         mostrarVideoFinal();
       }
     }
