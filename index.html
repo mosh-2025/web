@@ -204,8 +204,6 @@
     }
 
     function siguientePregunta() {
-      console.log('actual: ' + preguntaActual);
-      console.log('actual: ' + preguntasModulos.length - 1);
       if (preguntaActual < preguntasModulos.length - 1) {
         preguntaActual++;
         resetButtonPosition();
@@ -227,7 +225,7 @@
       const preguntaElement = document.getElementById("pregunta");
       preguntaElement.textContent = modulo.pregunta;
 
-      if (preguntaActual === 5 && 6) { 
+      if (preguntaActual === 5 || preguntaActual === 6) { 
         preguntaElement.classList.add("pregunta-italic");
       } else {
         preguntaElement.classList.remove("pregunta-italic");
