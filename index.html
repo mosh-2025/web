@@ -237,6 +237,7 @@
         document.getElementById("imagen").style.display = modulo.imagen ? "block" : "none";
       }else if(modulo.videoFinal){
         document.getElementById("imagen").src = modulo.imagen || ""; 
+        document.getElementById("texto").textContent = modulo.texto;
         document.getElementById("imagen").style.display = modulo.imagen ? "block" : "none";
         document.getElementById('buttons').style.display = 'none'; // Oculta los botones
         document.getElementById('videoFinal').src = preguntasModulos[preguntaActual].videoFinal;
