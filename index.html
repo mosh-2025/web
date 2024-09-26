@@ -204,11 +204,12 @@
     }
 
     function siguientePregunta() {
-      if (preguntaActual < preguntasModulos.length - 2) {
+      if (preguntaActual <= preguntasModulos.length - 2) {
         preguntaActual++;
         resetButtonPosition();
         actualizarPregunta();
       } else {
+        actualizarPregunta();
         mostrarVideoFinal();
       }
     }
@@ -217,8 +218,6 @@
       document.getElementById('videoFinal').src = preguntasModulos[preguntaActual].videoFinal;
       document.getElementById('videoFinal').style.display = 'block';
       document.getElementById('buttons').style.display = 'none'; // Oculta los botones
-      document.getElementById('texto').textContent = 'none';
-      document.getElementById('pregunta').textContent = 'none';
     }
 
     function actualizarPregunta() {
