@@ -24,8 +24,8 @@
       --secondary-color: #f01212;
       --button-yes-color: #4CAF50;
       --button-no-color: #f44336;
-      --font-family-pregunta: 'Sulphur Point', sans-serif;
-      --font-family-texto: 'Kulim Park', sans-serif;
+      --font-family-pregunta: 'Kulim Park', sans-serif;
+      --font-family-texto: 'Sulphur Point', sans-serif;
       --font-family-pregunta-final: 'Parisienne', cursive;
     }
     
@@ -129,6 +129,7 @@
     <img id="imagen" src="" >
     <h1 id="pregunta"></h1>
     <h2 id="texto"></h2>
+    <h2 id="texto"></h2>
     <div id="buttons">
       <button id="btnSi">Sí</button>
       <button id="btnNo" onmouseover="mueveElBoton()">No</button>
@@ -141,7 +142,7 @@
     const preguntasModulos = [
       { 
         pregunta: "Esperamos que sepas que eres alguien muy importante para nosotros",
-        texto: "Lo sabes, cierto?",
+        texto: "Lo sabes, ¿cierto?",
         imagen: "https://i.pinimg.com/originals/29/95/c5/2995c56ff88ab3dc9aec2e7c9d196946.gif",
         confirmacion: "Más te vale que lo sepas 😒" 
       },
@@ -164,7 +165,7 @@
         confirmacion: "Aquí viene..."
       },
       {
-        pregunta: "¿Te gustaría cantar en karaoke la canción de jigglypuff frente a todos los invitados de nuestra boda?",
+        pregunta: "¿Te gustaría cantar en karaoke la canción de Jigglypuff frente a todos los invitados de nuestra boda?",
         texto: "Sería muy divertido 😂",
         imagen: "https://i.pinimg.com/originals/8a/4b/a2/8a4ba2c3ccb773e98bee286af761f847.gif",
         confirmacion: "Ok, basta. La pregunta real es la siguiente... ¿seguro qué estás listo? 🤔"
@@ -204,47 +205,34 @@
     }
 
     function siguientePregunta() {
-      if (preguntaActual < preguntasModulos.length -1) {
         preguntaActual++;
         resetButtonPosition();
         actualizarPregunta();
-      } else {
-        //actualizarPregunta();
-        //mostrarVideoFinal();
-      }
-    }
-
-    function mostrarVideoFinal() {
-      document.getElementById('buttons').style.display = 'none'; // Oculta los botones
-      document.getElementById('videoFinal').src = preguntasModulos[preguntaActual].videoFinal;
-      document.getElementById('videoFinal').style.display = 'block';
     }
 
     function actualizarPregunta() {
-      const modulo = preguntasModulos[preguntaActual];
-      const preguntaElement = document.getElementById("pregunta");
-      preguntaElement.textContent = modulo.pregunta;
+        const modulo = preguntasModulos[preguntaActual];
 
-      if (preguntaActual === 5 || preguntaActual === 6) { 
-        preguntaElement.classList.add("pregunta-italic");
-      } else {
-        preguntaElement.classList.remove("pregunta-italic");
-      }
+        document.getElementById("pregunta").textContent = modulo.pregunta;
+        document.getElementById("texto").textContent = modulo.texto;        
 
-      if(modulo.imagen){
-        document.getElementById("texto").textContent = modulo.texto;
-        document.getElementById("imagen").src = modulo.imagen || ""; 
-        document.getElementById("imagen").style.display = modulo.imagen ? "block" : "none";
-      }else if(modulo.videoFinal){
-        document.getElementById("imagen").src = modulo.imagen || ""; 
-        document.getElementById("texto").textContent = preguntasModulos[preguntaActual].texto;
-        document.getElementById("imagen").style.display = modulo.imagen ? "block" : "none";
-        document.getElementById('buttons').style.display = 'none'; // Oculta los botones
-        document.getElementById('videoFinal').src = preguntasModulos[preguntaActual].videoFinal;
-        document.getElementById('videoFinal').style.display = 'block';
-      }
-      
-    }
+        if(modulo.imagen){
+            document.getElementById("imagen").src = modulo.imagen || ""; 
+            document.getElementById("imagen").style.display = modulo.imagen ? "block" : "none";
+        }else if(modulo.videoFinal){
+            document.getElementById("imagen").style.display = "none";
+            document.getElementById('buttons').style.display = 'none'; // Oculta los botones
+            document.getElementById('videoFinal').src = modulo.videoFinal;
+            document.getElementById('videoFinal').style.display = 'block';
+        }
+
+        if (preguntaActual > 4) { 
+            document.getElementById("pregunta").style.fontFamily = "Parisienne";
+            document.getElementById("texto").style.fontFamily = "Parisienne";
+          } else {
+            document.getElementById("pregunta").classList.remove("pregunta-final");
+          }
+    }    
 
     function resetButtonPosition() {
       const btnNo = document.getElementById("btnNo");
