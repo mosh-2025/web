@@ -11,9 +11,7 @@
 
   <!-- Link to Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Updock&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Fuente pregunta -->
-  <link href="https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"> <!-- Fuente texto -->
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet"> <!-- Fuente especial para la última pregunta -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Dancing+Script:wght@400..700&family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" type="image/svg+xml" />
@@ -22,11 +20,12 @@
     :root {
       --primary-color: #000000;
       --secondary-color: #f01212;
+      --secondary-color-final: #002ead;
       --button-yes-color: #4CAF50;
       --button-no-color: #f44336;
-      --font-family-pregunta: 'Kulim Park', sans-serif;
-      --font-family-texto: 'Sulphur Point', sans-serif;
-      --font-family-pregunta-final: 'Parisienne', cursive;
+      --font-family-pregunta: 'Comfortaa', sans-serif;
+      --font-family-texto: 'Quicksand', sans-serif;
+      --font-family-pregunta-final: "Dancing Script", cursive;
     }
     
     body {
@@ -47,19 +46,22 @@
     }
 
     h1 {
-      font-size: 30px;
+      font-size: 40px;
       color: var(--primary-color);
       font-family: var(--font-family-pregunta); /* Fuente para las preguntas */
     }
 
     h2 {
-      font-size: 25px;
+      font-size: 30px;
       color: var(--secondary-color);
       margin-bottom: 20px;
       font-family: var(--font-family-texto); /* Fuente para el texto */
     }
 
     #pregunta-final {
+      font-size: 40px;
+      color: var(--secondary-color-final);
+      margin-bottom: 20px;
       font-family: var(--font-family-pregunta-final); /* Fuente especial para la última pregunta */
     }
 
@@ -227,8 +229,8 @@
         }
 
         if (preguntaActual > 4) { 
-            document.getElementById("pregunta").style.fontFamily = "Parisienne";
-            document.getElementById("texto").style.fontFamily = "Parisienne";
+            document.getElementById("pregunta").style.fontFamily = "Dancing Script";
+            document.getElementById("texto").style.fontFamily = "Dancing Script";
           } else {
             document.getElementById("pregunta").classList.remove("pregunta-final");
           }
