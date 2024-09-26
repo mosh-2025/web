@@ -10,13 +10,14 @@
   <title>Para el bodoque</title>
 
   <!-- Link to Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Updock&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Fuente pregunta -->
   <link href="https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"> <!-- Fuente texto -->
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet"> <!-- Fuente especial para la última pregunta -->
 
   <!-- Favicon -->
   <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" type="image/svg+xml" />
-  <link href="https://fonts.googleapis.com/css2?family=Updock&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --primary-color: #000000;
@@ -179,12 +180,6 @@
         texto: "No sabes lo importante que es para nosotros que nos acompañes en ese momento como testigo de esta nueva etapa",
         videoFinal: "https://www.youtube.com/embed/ZYMkmW0TTSg?autoplay=1",
         confirmacion: "Prepara la firma 😎",
-      },
-      {
-        pregunta: "",
-        texto: "",
-        videoFinal: "https://www.youtube.com/embed/ZYMkmW0TTSg?autoplay=1",
-        confirmacion: "Gracias por todo.🧡",
       }
     ];
 
@@ -221,9 +216,6 @@
     function mostrarVideoFinal() {
       document.getElementById('videoFinal').src = preguntasModulos[preguntaActual].videoFinal;
       document.getElementById('videoFinal').style.display = 'block';
-      document.querySelector('img').style.display = 'none';
-      document.getElementById('pregunta').textContent = preguntasModulos[preguntaActual].pregunta;
-      document.getElementById('texto').textContent = preguntasModulos[preguntaActual].texto;
       document.getElementById('buttons').style.display = 'none'; // Oculta los botones
     }
 
@@ -232,7 +224,7 @@
       const preguntaElement = document.getElementById("pregunta");
       preguntaElement.textContent = modulo.pregunta;
 
-      if (preguntaActual === 5) { 
+      if (preguntaActual === 5 && 6) { 
         preguntaElement.classList.add("pregunta-italic");
       } else {
         preguntaElement.classList.remove("pregunta-italic");
